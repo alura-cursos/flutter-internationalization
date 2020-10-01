@@ -1,4 +1,5 @@
 import 'package:bytebank/components/container.dart';
+import 'package:bytebank/components/localization.dart';
 import 'package:bytebank/models/name.dart';
 import 'package:bytebank/screens/contacts_list.dart';
 import 'package:bytebank/screens/name.dart';
@@ -11,7 +12,7 @@ class DashboardContainer extends BlocContainer {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => NameCubit("Guilherme"),
-     child: DashboardView(),
+      child: DashboardView(),
     );
   }
 }
@@ -19,6 +20,7 @@ class DashboardContainer extends BlocContainer {
 class DashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final i18n = DashboardViewI18N(context);
     return Scaffold(
       appBar: AppBar(
         // misturando um blocbuilder (que é um observer de eventos) com UI
@@ -41,17 +43,17 @@ class DashboardView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   _FeatureItem(
-                    'Transfer',
+                    i18n.transfer,
                     Icons.monetization_on,
                     onClick: () => _showContactsList(context),
                   ),
                   _FeatureItem(
-                    'Transaction Feed',
+                    i18n.transaction_feed,
                     Icons.description,
                     onClick: () => _showTransactionsList(context),
                   ),
                   _FeatureItem(
-                    'Change name',
+                    i18n.change_name,
                     Icons.person_outline,
                     onClick: () => _showChangeName(context),
                   ),
@@ -71,10 +73,11 @@ class DashboardView extends StatelessWidget {
   void _showChangeName(BuildContext blocContext) {
     Navigator.of(blocContext).push(
       MaterialPageRoute(
-        builder: (context) => BlocProvider.value(
-          value: BlocProvider.of<NameCubit>(blocContext),
-          child: NameContainer(),
-        ),
+        builder: (context) =>
+            BlocProvider.value(
+              value: BlocProvider.of<NameCubit>(blocContext),
+              child: NameContainer(),
+            ),
       ),
     );
   }
@@ -88,23 +91,38 @@ class DashboardView extends StatelessWidget {
   }
 }
 
+class DashboardViewI18N extends ViewI18N {
+  DashboardViewI18N(BuildContext context) : super(context);
+
+  String get transfer =>
+      localize({"pt-br": "Transferir", "en": "Transfer"});
+
+  String get transaction_feed =>
+      localize({"pt-br": "Transações", "en": "Transaction Feed"});
+
+  String get change_name =>
+      localize({"pt-br": "Mudar nome", "en": 'Change name'});
+
+}
+
 class _FeatureItem extends StatelessWidget {
   final String name;
   final IconData icon;
   final Function onClick;
 
-  _FeatureItem(
-    this.name,
-    this.icon, {
-    @required this.onClick,
-  });
+  _FeatureItem(this.name,
+      this.icon, {
+        @required this.onClick,
+      });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Material(
-        color: Theme.of(context).primaryColor,
+        color: Theme
+            .of(context)
+            .primaryColor,
         child: InkWell(
           onTap: () => onClick(),
           child: Container(
