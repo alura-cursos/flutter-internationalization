@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:bytebank/components/container.dart';
-import 'package:bytebank/components/error.dart';
-import 'package:bytebank/components/progress.dart';
+import 'package:bytebank/components/error_view.dart';
+import 'package:bytebank/components/progress/progress_view.dart';
+import 'file:///C:/Users/guilh/Dropbox/projetos/cursos/flutter-bloc2/lib/components/progress/progress.dart';
 import 'package:bytebank/components/response_dialog.dart';
 import 'package:bytebank/components/transaction_auth_dialog.dart';
 import 'package:bytebank/http/webclients/transaction_webclient.dart';

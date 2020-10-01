@@ -1,9 +1,11 @@
+import 'package:bytebank/components/localization/locale.dart';
 import 'package:bytebank/components/theme.dart';
-import 'package:bytebank/screens/dashboard.dart';
+import 'package:bytebank/screens/dashboard/dashboard_container.dart';
+import 'file:///C:/Users/guilh/Dropbox/projetos/cursos/flutter-bloc2/lib/screens/dashboard/dashboard_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'components/localization.dart';
+import 'components/localization/i18n_loadingview.dart';
 
 void main() {
   runApp(BytebankApp());

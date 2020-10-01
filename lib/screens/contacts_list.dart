@@ -1,5 +1,5 @@
 import 'package:bytebank/components/container.dart';
-import 'package:bytebank/components/progress.dart';
+import 'file:///C:/Users/guilh/Dropbox/projetos/cursos/flutter-bloc2/lib/components/progress/progress.dart';
 import 'package:bytebank/database/dao/contact_dao.dart';
 import 'package:bytebank/models/contact.dart';
 import 'package:bytebank/screens/contact_form.dart';
