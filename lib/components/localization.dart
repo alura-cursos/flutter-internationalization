@@ -1,6 +1,5 @@
 // localization e internationalization
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +23,6 @@ class CurrentLocaleCubit extends Cubit<String> {
   CurrentLocaleCubit() : super("en");
 }
 
-
 class ViewI18N {
   String _language;
 
@@ -37,7 +35,11 @@ class ViewI18N {
   }
 
   String localize(Map<String, String> values) {
+    assert(values != null);
+    assert(values.containsKey(_language));
+    // voce pdoeria definir que o padrao eh mostrar em ingles ao inves de quebrar
+    // a aplicacao
+
     return values[_language];
   }
-
 }

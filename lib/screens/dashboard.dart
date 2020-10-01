@@ -97,6 +97,7 @@ class DashboardViewI18N extends ViewI18N {
   String get transfer =>
       localize({"pt-br": "Transferir", "en": "Transfer"});
 
+  // _ é para constante. defina se você vai usar também para não constante!
   String get transaction_feed =>
       localize({"pt-br": "Transações", "en": "Transaction Feed"});
 

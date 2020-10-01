@@ -3,7 +3,6 @@ import 'package:bytebank/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'components/container.dart';
 import 'components/localization.dart';
 
 void main() {
